@@ -6,9 +6,9 @@ const bot = new Telegram(process.env.TELEGRAM_TOKEN)
 const weatherToken = process.env.WEATHER_API_TOKEN
 
 const weatherURL = new URL('https://api.openweathermap.org/data/2.5/weather')
-weatherURL.searchParams.set('zip', '78747,us')
+weatherURL.searchParams.set('zip', '29130,es')
 weatherURL.searchParams.set('APPID', weatherToken)
-weatherURL.searchParams.set('units', 'imperial')
+weatherURL.searchParams.set('units', 'metric')
 
 const getWeatherData = async () => {
   const resp = await fetch(weatherURL.toString())
@@ -17,7 +17,7 @@ const getWeatherData = async () => {
 }
 
 const generateWeatherMessage = weatherData =>
-  `The weather in ${weatherData.name}: ${weatherData.weather[0].description}. Current temperature is ${weatherData.main.temp}, with a low temp of ${weatherData.main.temp_min} and high of ${weatherData.main.temp_max}.`
+  `La predicción para mañana en Alhaurín de la Torre. Tiempo: ${weatherData.list[0].weather[0].description}, con temperaturas de: ${weatherData.list[0].main[0].temp_min}/${weatherData.list[0].main[0].temp_max}` `
 
 const main = async () => {
   const weatherData = await getWeatherData()
