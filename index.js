@@ -17,7 +17,7 @@ const getWeatherData = async () => {
 }
 
 const generateWeatherMessage = weatherData =>
-  `La predicción para mañana en Alhaurín de la Torre. Tiempo: ${weatherData.list[0].weather[0].description}, con temperaturas de: ${weatherData.list[0].main[0].temp_min}/${weatherData.list[0].main[0].temp_max}` `
+  `La predicción para mañana en Alhaurín de la Torre. Tiempo: ${weatherData.list[0].weather[0].description}, con temperaturas de: ${weatherData.list[0].main[0].temp_min}/${weatherData.list[0].main[0].temp_max}.`
 
 const main = async () => {
   const weatherData = await getWeatherData()
